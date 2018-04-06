@@ -14,6 +14,23 @@ const bonus = driverData.bonus;
 // Assign a boolean to this variable:
 //   `true` if the driver can rent a car
 //   `false` if not
-let canRentACar;
+
+let canRentACar = false;
+if ( driverData.licenseIssued < 2018){
+  console.log("the driver can rent a car");
+} else {
+  console.log("the driver cannot rent a car");
+}
 
 // Your code here:
+
+
+const driverIsLicenceValid = (driverLicense === "B" || driverLicense ==="B1");
+const atLeastTwoYears = (licenseIssued <= 2016);
+const isDriverIsSafe = (numberOfAccident === 0 || bonus >= 0.7);
+
+if (driverIsLicenceValid && atLeastTwoYears && isDriverIsSafe){
+  canRentACar = true;
+}else{
+  canRentACar = false;
+}
