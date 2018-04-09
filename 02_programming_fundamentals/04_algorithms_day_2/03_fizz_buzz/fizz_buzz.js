@@ -27,3 +27,23 @@ function fizzBuzz(list) {
 }
 console.log(fizzBuzz([1,15]));
 module.exports = fizzBuzz;
+
+/* avec map
+function fizzify(number) {
+  let result;
+  if (number % 15 === 0) {
+    result = "FizzBuzz";
+  } else if (number % 3 === 0) {
+    result = "Fizz";
+  } else if (number % 5 === 0) {
+    result = "Buzz";
+  } else {
+    result = number;
+  }
+
+  return result;
+}
+
+function fizzBuzz (list) {
+  return list.map(fizzify);
+} */

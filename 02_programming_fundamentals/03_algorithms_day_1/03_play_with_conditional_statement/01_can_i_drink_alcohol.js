@@ -32,8 +32,6 @@ if (francis.age > 18){
 }
 
 
-
-
 // These variables should stay correct if we modify the ages of the objects
 // `francis` and `frieda` in the declaration.
 // Warning: If you run `npm test` again after changing the age values,
