@@ -34,9 +34,24 @@
 // ```
 
 function pattern(size) {
-  // Your code here
+  const totalRows = (size);
+    const myArray = [];
+    for (let i = 1; i <= totalRows ; i++) {
+        for (const j = 1; j <= i; j++) {
+            arr.push(j);
+            console.log(j);
+        }
+        console.log("\n");
+    }
 }
 
+  // Your code here
+
+
+
+
+}
+pattern(3)
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = pattern;

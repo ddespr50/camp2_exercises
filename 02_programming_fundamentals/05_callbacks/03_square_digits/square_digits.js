@@ -11,7 +11,7 @@ function squareDigits(number) {
   const numberToString = number.toString();
   const myArray = numberToString.split("");
   const myNewArray = [];
-  myArray.map( (element) => {
+  myArray.map((element) => {
     const squareNumber = element*element;
     myNewArray.push(squareNumber);
     return(myNewArray);
@@ -25,3 +25,17 @@ squareDigits(2345);
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = squareDigits;
+
+
+
+/*
+function squareDigits(number) {
+  const numberString = number.toString();
+  const digits = numberString
+    .split("")
+    .map((digitString)=>parseInt(digitString,10));
+  const digitsSquared = digits.map((digit) => digit*digit);
+  const digitJoined = digitsSquared.join("");
+  return parseInt(digitJoined,10);
+}
+squareDigits(2345);

@@ -7,3 +7,11 @@ const getInput = (anUser,callback) => {
 };
 
 getInput({user: "Lorem", key: "arrow_up"}, log);
+
+
+
+/*const log = (text) => console.log(text);
+=
+function log (text) {
+console.log(test);
+} */
