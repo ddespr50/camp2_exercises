@@ -9,8 +9,21 @@
 */
 
 function fizzBuzz(list) {
-
+  const fbArray =[];
+  //for (let i = 0; i <= list.length-1 ; i++){
+  for (let i = 0; i < list.length ; i++){
+    // if (list [i] %15 === 0){
+    if (list[i] % 3 === 0 && list[i] % 5 === 0){
+      fbArray.push("FizzBuzz");
+    } else if (list [i] % 3 === 0) {
+      fbArray.push("Fizz");
+    } else if (list [i] % 5 === 0) {
+      fbArray.push("Buzz");
+    } else {
+      fbArray.push(list[i]);
+    }
+  }
+  return fbArray;
 }
-
-
+console.log(fizzBuzz([1,15]));
 module.exports = fizzBuzz;
