@@ -32,26 +32,14 @@
 // 10101010101010101010
 // 1111111111111111111111
 // ```
-
 function pattern(size) {
-  const totalRows = (size);
-    const myArray = [];
-    for (let i = 1; i <= totalRows ; i++) {
-        for (const j = 1; j <= i; j++) {
-            arr.push(j);
-            console.log(j);
-        }
-        console.log("\n");
-    }
+  let pyramidList = [], i;
+  for(i = 1; i <= size; i++) {
+    pyramidList.push(Array(i + 1).join(i));
+  }
+  return pyramidList.join("\n");
 }
-
-  // Your code here
-
-
-
-
-}
-pattern(3)
+pattern(5);
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = pattern;
