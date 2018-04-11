@@ -5,22 +5,22 @@ const fs = require("fs");
 //
 // The function returns a boolean indicating if it successfully removed the file.
 
-const pathToDelete = "/Users/Damien/Workspace/folderTest/test";
 
-
-const file = true
-
-function isFile () => {
-  fs.isFile()
+//check si c'est un fichier
+function isFile (pathToDelete) {
+  let stats = fs.statSync(pathToDelete);
+  if (stats.isFile() === true ){
+    return true;//    console.log("this is a file");
+  } else {
+    return false;
+  }
 }
+isFile(pathToDelete);
+//suppression du fichier ==> fonctionne avec node
+const pathToDelete = "/Users/Damien/Workspace/folderTest/folderForMove/test1";
 
-
-
-
-
-
-/*function deleteFile (pathToDelete) {
-  fs.unlinkSync(pathToDelete,(error) => {
+function deleteFile (pathToDelete) {
+  fs.unlink(pathToDelete,(error) => {
     if (error) {
       console.warn(error);
     } else {
@@ -28,5 +28,19 @@ function isFile () => {
     }});
 }
 deleteFile(pathToDelete);
-
 module.exports = deleteFile;
+
+
+// Correction
+const pathToDelete = "/Users/Damien/Workspace/folderTest/folderForMove/test1";
+
+function deleteFile(pathToDelete){
+  fs.unlink(pathToDelete,(error) => {
+    if (error) {
+      console.warn(error);
+      return;
+    }
+    console.log("file deleted successfully");
+  });
+}
+deleteFile(pathToDelete);
