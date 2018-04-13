@@ -5,21 +5,22 @@
 
 const machine = {
 
-  litersOfCoffee : 0 ,
-  expressoVolume : 0.08 ,
-  longCoffeeVolume : 0.15 ,
+  litersOfCoffee: 0 ,
+  expressoVolume: 0.08 ,
+  longCoffeeVolume: 0.15 ,
 
 
   fillWithLitersOfCoffee : function (quantityOfCoffee){
     this.litersOfCoffee = this.litersOfCoffee + quantityOfCoffee;
+    //this.litersOfCoffee += quantityOfCoffee;
     return this;
   },
   expresso : function (){
     if (this.litersOfCoffee >= this.expressoVolume) {
       this.litersOfCoffee = this.litersOfCoffee - this.expressoVolume;
+      //this.litersOfCoffee -= this.expressoVolume;
       return true;
     } else {
-
       return false;
     }
 
@@ -27,6 +28,7 @@ const machine = {
   longCoffee : function (){
     if (this.litersOfCoffee >= this.longCoffeeVolume) {
       this.litersOfCoffee = this.litersOfCoffee - this.longCoffeeVolume;
+      //this.litersOfCoffee -= this.longCoffeeVolume;
       return true;
     } else {
       return false;
