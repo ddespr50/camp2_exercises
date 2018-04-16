@@ -63,7 +63,7 @@ function getCoordinate(input) {
   } else {
     return null;
   }
-}
+}  
 
 function handleInput(input) {
   if (input === "q") {
