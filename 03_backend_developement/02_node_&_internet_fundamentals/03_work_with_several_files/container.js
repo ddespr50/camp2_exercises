@@ -16,13 +16,7 @@ function consumeLitersOfCoffee(numberOfLiters){
 }
 
 
-function getQuantity(){
-  return litersOfCoffee;
-}
-
-
 module.exports={
-  getQuantity: getQuantity,
   putLitersOfCoffee: putLitersOfCoffee,
   consumeLitersOfCoffee: consumeLitersOfCoffee
 };

@@ -1,40 +1,15 @@
-//a tester
-
-
-const container = require ("./container");
-console.log(container);
+const container = require("./container");
 
 const machine = {
-
-
-
-
-  fillWithLitersOfCoffee : function (quantityOfCoffee){
-    this.litersOfCoffee = this.litersOfCoffee + quantityOfCoffee;
-    //this.litersOfCoffee += quantityOfCoffee;
-    return this;
+  expresso: function() {
+    return container.consumeLitersOfCoffee(0.08);
   },
-  expresso : function (){
-    if (this.litersOfCoffee >= this.expressoVolume) {
-      this.litersOfCoffee = this.litersOfCoffee - this.expressoVolume;
-      //this.litersOfCoffee -= this.expressoVolume;
-      return true;
-    } else {
-      return false;
-    }
-
+  fillWithLitersOfCoffee: function(liters) {
+    container.putLitersOfCoffee(liters);
   },
-  longCoffee : function (){
-    if (this.litersOfCoffee >= this.longCoffeeVolume) {
-      this.litersOfCoffee = this.litersOfCoffee - this.longCoffeeVolume;
-      //this.litersOfCoffee -= this.longCoffeeVolume;
-      return true;
-    } else {
-      return false;
-    }
-
-  },
-
+  longCoffee: function() {
+    return container.consumeLitersOfCoffee(0.15);
+  }
 };
 
 module.exports = machine;
