@@ -1,7 +1,6 @@
 {
   "name": "02_manage_a_webservice",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,5 +9,9 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^21.2.1"
+  },
+  "description": "",
+  "dependencies": {
+    "request": "^2.85.0"
   }
 }
