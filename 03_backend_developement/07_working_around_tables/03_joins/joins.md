@@ -1,68 +1,214 @@
-# Joins
+CREATE TABLE Region (
+id INTEGER PRIMARY KEY,
+name_of_region VARCHAR(100)
+);
 
-1. Write a query in SQL to display the first name, last name, department number, and department name for each employee.
 
-2. Write a query in SQL to display the first and last name, department, city, and state province for each employee.
+CREATE TABLE Country (
+id INTEGER PRIMARY KEY,
+name_of_country VARCHAR(100),
+region_id INTEGER
+);
 
-3. Write a query in SQL to display the first name, last name, salary, and job grade for all employees.
 
-4. Write a query in SQL to display the first name, last name, department number and department name, for all employees
-for departments 8 or 4.
+CREATE TABLE Location (
+id INTEGER PRIMARY KEY,
+street_address VARCHAR(100),
+postal_code VARCHAR(100) ,
+city VARCHAR(100),
+state VARCHAR(100),
+country_id INTEGER
+);
 
-5. Write a query in SQL to display those employees who contain a letter z to their first name and also display their
-last name, department, city, and state province.
 
-6. Write a query in SQL to display all departments including those where does not have any employee.
+CREATE TABLE Job (
+id INTEGER PRIMARY KEY,
+title VARCHAR(100),
+min_salary FLOAT4,
+max_salary FLOAT4,
+);
 
-7. Write a query in SQL to display the first and last name and salary for those employees who earn less than the
-employee earn whose number is 83.
+CREATE TABLE Job_Grade (
+id INTEGER PRIMARY KEY,
+level_of_job VARCHAR(100),
+lowest_salary INTEGER,
+highest_salary INTEGER
+);
 
-8. Write a query in SQL to display the first name of all employees including the first name of their manager.
+CREATE TABLE Job_History (
+id INTEGER PRIMARY KEY,
+employee_id INTEGER,
+start_date DATE,
+end_date DATE,
+job_id INTEGER,
+department_id INTEGER
+);
 
-9. Write a query in SQL to display the department name, city, and state province for each department.
+CREATE TABLE Department (
+id INTEGER PRIMARY KEY,
+name_of_department VARCHAR(100),
+manager_id INTEGER,
+location_id INTEGER
+);
 
-10. Write a query in SQL to display the first name, last name, department number and name, for all employees who have or
-have not any department.
 
-11. Write a query in SQL to display the first name of all employees and the first name of their manager including those
-who does not working under any manager.
+CREATE TABLE Employee (
+id INTEGER PRIMARY KEY,
+first_name VARCHAR(100),
+last_name VARCHAR(100),
+email VARCHAR(100),
+phone_number VARCHAR(100),
+hire_date DATE,
+job_id INTEGER,
+salary FLOAT4,
+manager_id INTEGER,
+department_id INTEGER
+);
 
-12. Write a query in SQL to display the first name, last name, and department number for those employees who work in the
-same department as the employee who hold the last name as Taylor.
+--EXERCICE
+--Write a query in SQL to display the full name (first and last name), and salary for those employees who earn below 6000;
+select first_name,last_name,salary
+from employee e
+where e.salary < 6000;
+--Write a query in SQL to display the first and last_name, department number and salary for those employees who earn more than 8000.;
+select first_name,last_name,department_id,salary
+from employee e
+where e.salary > 8000;
+--Write a query in SQL to display the first and last name, and department number for all employees whose last name is "McEwen".;
+select first_name,last_name,department_id
+from employee e
+where e.last_name = 'McEwen';
+--Write a query in SQL to display all the information for all employees without any department number.;
+select *
+from employee e
+where e.department_id is null;
+--Write a query in SQL to display all the information about the department Marketing.;
+select *
+from department d
+where d.name_of_department = 'Marketing';
+--Write a query in SQL to display the full name (first and last), hire date, salary, and department number for those employees whose first name does not containing the letter M and make the result set in ascending order by department number.;
+select first_name,last_name,hire_date,salary,department_id
+from employee e
+where e.first_name not like '%M%'
+and e.first_name not like '%m%'
+order by department_id asc;
+--Write a query in SQL to display all the information of employees whose salary is in the range of 8000 and 12000 and commission is not null or department number is except the number 4, 12 and 7 and they have been hired before June 5th, 1987.;
+select *
+from employee e
+where e.salary between 8000 and 12000
+and e.department_id not in (4,12,7)
+and e.hire_date < '1987-06-05';
+--Write a query in SQL to display the full name (first and last name), and salary for all employees who does not earn any commission.;
+select first_name,last_name,salary
+from employee;
+--Write a query in SQL to display the full name (first and last), the phone number and email separated by hyphen, and salary, for those employees whose salary is within the range of 9000 and 17000. The column headings assign with Full_Name, Contact_Details and Remuneration respectively.;
+select concat (first_name,' ',last_name) as full_name,
+concat (phone_number,' ',email)as contact_details,
+salary from employee;
+--Write a query in SQL to display the first and last name, and salary for those employees whose first name is ending with the letter m.;
+select first_name,last_name,salary
+from employee e
+where e.first_name like '%m';
 
-13. Write a query in SQL to display the job title, department name, full name (first and last name ) of employee, and
-starting date for all the jobs which started on or after 1st January, 1993 and ending with on or before 31 August, 1997.
 
-14. Write a query in SQL to display job title, full name (first and last name ) of employee, and the difference between
-maximum salary for the job and salary of the employee.
+--Write a query in SQL to display the full name (first and last) name, and salary, for all employees whose salary is out of the range 7000 and 15000 and make the result set in ascending order by the full name.
 
-15. Write a query in SQL to display the name of the department, average salary and number of employees working in that
-department who got commission.
+select first_name,last_name,salary
+from employee e
+where e.salary < '7000' or
+e.salary > '15000'
+order by e.last_name asc;
 
-16. Write a query in SQL to display the full name (first and last name ) of employee, and job title of those employees
-who is working in the department which ID is 8.
+--Write a query in SQL to display the full name (first and last), job id and date of hire for those employees who was hired during November 5th, 2007 and July 5th, 2009.
 
-17. Write a query in SQL to display the name of the country, city, and the departments which are running there.
+select first_name, last_name, job_id,hire_date
+from employee e
+where e.hire_date between '2007-11-05' and '2009-07-05';
 
-18. Write a query in SQL to display department name and the full name (first and last name) of the manager.
+--Write a query in SQL to display the the full name (first and last name), and department number for those employees who works either in department 7 or 9.
+select first_name,last_name,department_id
+from employee e
+where e.department_id = 7 or e.department_id=9;
 
-19. Write a query in SQL to display job title and average salary of employees.
 
-20. Write a query in SQL to display the details of jobs which was done by any of the employees who is presently earning
-a salary on and above 12000.
+--Write a query in SQL to display the full name (first and last name), salary, and manager number for those employees who is working under a manager.
+select first_name,last_name,salary,manager_id
+from employee e
+where e.manager_id is not null;
 
-22. Write a query in SQL to display the department name, full name (first and last name) of manager, and their city.
 
-23. Write a query in SQL to display the employee ID, job name, number of days worked in for all those jobs in department
-8.
+--Write a query in SQL to display all the information from Employees table for those employees who was hired before June 21st, 2002.
+select *
+from employee e
+where e.hire_date < '2002-06-21';
 
-24. Write a query in SQL to display the full name (first and last name), and salary of those employees who working in
-any department located in London.
 
-25. Write a query in SQL to display full name(first and last name), job title, starting and ending date of last jobs for
-those employees with worked without a commission percentage.
+--Write a query in SQL to display the first and last name, email, salary and manager ID, for those employees whose managers are hold the ID 21, 4 or 46.
+select first_name,last_name,email,salary,manager_id
+from employee e
+where e.manager_id in ('21','4','46');
 
-26. Write a query in SQL to display the department name and number of employees in each of the department.
 
-27. Write a query in SQL to display the full name (fisrt and last name ) of employee with ID and name of the country
-presently where (s)he is working.
+--Write a query in SQL to display all the information for all employees who have the letters D, S, or N in their first name and also arrange the result in descending order by salary.
+select *
+from employee e
+where e.first_name like '%D%'
+or e.first_name like '%S%'
+or e.first_name like '%N%'
+order by e.salary desc;
+
+--Write a query in SQL to display the full name (first name and last name), hire date, commission percentage, email and telephone separated by '-', and salary for those employees who earn the salary above 11000 or the seventh digit in their phone number equals 3 and make the result set in a descending order by the first name.
+
+select concat(first_name,' ',last_name) as full_name,
+hire_date,
+concat (email,'-',phone_number) as contact_details,
+salary
+from employee e
+where salary > 11000
+or e.phone_number like '___.___.3___'
+or e.phone_number like '___.__._3__.______'
+order by first_name desc;
+
+
+--Write a query in SQL to display the first and last name, and department number for those employees who holds a letter s as a 3rd character in their first name.
+select first_name,last_name,department_id
+from employee e
+where e.first_name like '__s%';
+
+
+--Write a query in SQL to display the employee ID, first name, job id, and department number for those employees who is working except the departments 5, 3 and 8.
+select id, first_name,job_id,department_id
+from employee e
+where department_id not in ('5','3','8');
+
+--Write a query in SQL to display the first name, last name, department number, and department name for each employee.
+
+select first_name,last_name,department_id,name_of_department
+from employee e
+inner join department d
+on e.department_id = d.id;
+
+--Write a query in SQL to display the first and last name and salary for those employees who earn less than the employee earn whose number is 83.
+
+
+select first_name,last_name,salary
+from employee
+where salary < (select salary from employee where id = 83);
+
+--Write a query in SQL to display the first name of all employees including the first name of their manager.
+
+select emp.first_name as employees,
+distinct man.first_name as boss
+from employee emp
+inner join employee man
+on emp.manager_id = man.id
+order by man.first_name asc;
+
+-- Write a query in SQL to display the department name, full name (first and last name) of manager, and their city.
+
+select dep.name_of_department,
+concat(emp.first_name,' ',emp.last_name) as full_name,
+loc.city
+from department dep
+inner join employee emp on dep.manager_id = emp.id
+inner join location loc on dep.location_id = loc.id;
