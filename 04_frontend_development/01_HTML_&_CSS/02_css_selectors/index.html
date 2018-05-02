@@ -1,0 +1,96 @@
+<!-- CSS Selectors
+Context and objectives
+Okay, so we've played with HTML, now it's time to play with some CSS. Here, the point is to manipulate some As always, the documentation is our best friend.
+
+Specs
+First, create a new html file named index.html, with basic tags, then:
+
+add a new table
+change the background color every two lines with CSS
+then:
+
+add a new paragraph (time to google "Lorem Ipsum")
+check the documentation of the span tag.
+create two css classes:
+important: bold the text
+emphasis: italic the text
+When those two classes are used in same time, the text must be bold, emphased and red. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome Page</title>
+    <style>
+      .green{
+        background-color: #00C7AD
+      }
+      .important{
+        font-weight:bolder;
+      }
+      .emphasis{
+        font-style: italic;
+      }
+      .red{
+        color: #FF0000
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+    <h1>Lorem Ipsum</h1>
+
+    <table>
+      <span class = "green">my table</span>
+      <tr>
+        <td>&nbsp;</td>
+        <td>Lille</td>
+        <td>Metz</td>
+        <td>Caen</td>
+        <td>Paris</td>
+
+      </tr>
+      <tr class ="green">
+        <td>date</td>
+        <td>X</td>
+        <td>0</td>
+        <td>X</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Results</td>
+        <td>O</td>
+        <td>X</td>
+        <td>0</td>
+        <td>X</td>
+      </tr>
+      <tr class ="green">
+        <td>next</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </table>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra ipsum sed egestas cursus.
+    Proin placerat elementum lacus. <span class="important">Pellentesque a eros nec erat pharetra volutpat ut sed massa.</span> Nunc interdum ultrices tortor sit amet pellentesque.
+    Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin tincidunt sem congue aliquam sodales. Ut cursus nunc vitae aliquam blandit.
+    Nam gravida pretium sapien, in pharetra dui faucibus quis. Aliquam risus enim, tempus non nulla at, luctus dictum nibh.
+    Vivamus pulvinar nibh elit, nec tempus lectus tristique sed.</p>
+
+    Etiam malesuada vitae erat in porttitor. <span class="emphasis">Duis feugiat ex quis ante facilisis, at tempus dolor vehicula.</span> Nulla ornare dignissim nulla id congue.
+    Pellentesque quis porta ante. Proin non est auctor, semper quam non, efficitur urna. Nulla sodales accumsan sapien, sit amet mattis velit condimentum faucibus.
+    Nam malesuada fringilla tellus sed luctus. In condimentum metus erat, eu placerat ante maximus id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+    Fusce quis enim erat. Integer iaculis mauris nisi, sed dictum velit molestie eu. Vivamus vestibulum hendrerit rutrum.
+    Proin euismod condimentum sapien, mollis placerat lacus rhoncus eget. Nam finibus viverra ante, sed auctor quam suscipit quis.
+    Integer a tellus dapibus sem facilisis sagittis a et felis. Morbi bibendum mauris eu neque eleifend mollis. Suspendisse malesuada euismod dictum.
+    <span class= "important emphasis red">Morbi eu efficitur nunc, sed placerat tortor. Curabitur nec condimentum enim. Nulla tincidunt, dui eget semper aliquet, tellus leo cursus turpis, nec elementum nisi augue vitae tortor. Morbi ac fermentum arcu.
+    Nulla porta posuere magna eget ullamcorper. Fusce in nibh cursus, eleifend libero in, ultricies leo.</span>
+
+  </body>
+</html>

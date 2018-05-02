@@ -1,0 +1,38 @@
+<!-- Button Component
+Context and objectives
+It's a common pattern to create a complete style for an HTML element like buttons. We're going to try that now.
+
+Specs
+Create a new HTML file, named index.html, with basic tags, then:
+
+create a new button
+create a new CSS classes applied to the button
+the button should be bigger when we move the arrow above it
+the button should show a "push" effect when we click on it
+BONUS: find how to add shadow on the border of the button -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My page</title>
+    <style>
+      .btn {
+        font-style: italic;
+      }
+      button:hover {
+        font-size: 50px;
+      }
+      button:active{
+        background-color: #b0e0e6;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>First Button</h1>
+    <button class="btn">Click Me!</button>
+  </body>
+</html>
