@@ -1,0 +1,23 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<title>DECATHLON catalog</title>
+    <div class="container">
+      <div class="row m-auto">
+        <div class="col-md">
+          {% for element in products %}
+            <div class="card " style="width: 18rem;">
+              <img class="card-img-top" src="https://www.decathlon.fr/media/{{element.image_path}}" alt="{{element.title}}">
+              <div class="card-body">
+                <h5 class="card-title">{{element.title}}</h5>
+                <p class="card-text">{{element.description}}</p>
+                <p class="card-text">{{element.min_price}}</p>
+                <p class="card-text">{{element.rating}}</p>
+
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock %}

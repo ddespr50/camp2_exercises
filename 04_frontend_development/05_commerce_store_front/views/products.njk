@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<title>DECATHLON catalog</title>
+    <div class="container">
+      <div class="row m-auto">
+        <div class="col-md">
+          {% for element in products %}
+          <a href="/products/{{element.products_id}}">
+            <div class="card " style="width: 18rem;">
+              <img class="card-img-top" src="https://www.decathlon.fr/media/{{element.image_path}}" alt="{{element.title}}">
+              <div class="card-body">
+                <h5 class="card-title">{{element.title}}</h5>
+                <p class="card-text">{{element.description}}</p>
+              </div>
+            </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+
+{#
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://www.decathlon.fr/media/{{element.image_path}}" alt="{{element.title}}">
+  <div class="card-body">
+    <h5 class="card-title">{{element.title}}</h5>
+    <p class="card-text">{{element.description}}</p>
+  </div>
+</div> #}
+
+
+
+
+{# {% extends "layout.njk" %}
+
+{% block content %}
+<title>DECATHLON catalog</title>
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <table class="table table-striped text-center">
+          {% for element in products %}
+            <tr>
+              <td>
+                <a href="/products/{{element.id}}">{{element.title}}</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+{% endblock %} #}

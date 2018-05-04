@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<title>DECATHLON catalog</title>
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <h3 class="text-center">categories</h3>
+          <table class="table table-striped text-center">
+          {% for element in categories %}
+            <tr>
+              <td>
+                <a href="/categories/{{element.id}}">{{element.label}}</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+{% endblock %}

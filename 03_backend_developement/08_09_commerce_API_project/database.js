@@ -53,7 +53,7 @@ function insertInProductsTable(productsToInsert, total){
     }
   );
 }
-// // last insert to do 
+// // last insert to do
 // function insertInProductsByCategoriesTable(productsByCategoriesToInsert, total){
 //   client.query("INSERT INTO productbycategories (id) VALUES ($1)",[productsByCategoriesToInsert.id],
 //     function(error, result) {
@@ -76,5 +76,5 @@ module.exports = {
   insertInBrandsTable: insertInBrandsTable,
   insertInCategoriesTable: insertInCategoriesTable,
   insertInProductsTable: insertInProductsTable,
-  insertInProductsByCategoriesTable: insertInProductsByCategoriesTable
+  //insertInProductsByCategoriesTable: insertInProductsByCategoriesTable
 };
