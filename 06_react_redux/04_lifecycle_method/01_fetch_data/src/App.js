@@ -34,7 +34,9 @@ class DogApp extends Component {
           <div> Bonjour , le chien </div>
           <img src= {this.state.url} />
         </div>
-        <button onClick={() => this.refresh()}>Refresh</button>
+        <div>
+        <button  onClick={() => this.refresh()} >Refresh</button>
+        </div>
       </div>
     );
   }
