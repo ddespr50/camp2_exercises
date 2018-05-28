@@ -32,6 +32,12 @@ a {
     text-decoration: none;
 }
 
+.photo {
+  width:400px;
+  height:400px;
+}
+
+
 /* .unselected {
     text-decoration: none;
 } better way with website,add className="unselected" */

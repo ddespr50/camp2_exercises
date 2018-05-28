@@ -3,7 +3,8 @@ import './App.css';
 import {
   NavLink,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 
 const Home = () => (
@@ -28,41 +29,42 @@ const Articles = () => (
   </div>
 )
 
-const Article42 = () => (
-  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget lacus vitae purus luctus luctus. Donec aliquet accumsan orci, in finibus augue maximus in. Fusce rutrum efficitur mi ac vehicula. Nunc eleifend rutrum velit a molestie. Praesent rutrum lectus metus, quis laoreet eros feugiat a. Nam vel turpis ex. Donec egestas tortor facilisis nulla aliquam malesuada. Integer vitae nisi ac eros euismod condimentum vel et leo. Morbi condimentum leo vel libero blandit facilisis quis lobortis ligula. Ut elementum arcu dignissim nisl tincidunt ultricies. Mauris pellentesque lectus sit amet massa ullamcorper facilisis.
+const Article42 = (props) => (
+  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget lacus vitae purus luctus luctus.</div>
+)
+
+const Article1337 = (props) => (
+  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et maximus urna, id tincidunt purus.</div>
+)
+
+const User = (props) => (
+  <div>
+    <div>{props.match.params.user}</div>
+    <img className="photo" src="https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-8/10916328_10152942124204854_1615500087149760975_o.jpg?_nc_cat=0&oh=9a730461e8efba7735da86906ef16501&oe=5B762A36"/>
   </div>
 )
-
-const Article1337 = () => (
-  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et maximus urna, id tincidunt purus. Vestibulum et quam a eros porta varius sit amet sit amet augue. Donec facilisis turpis non ornare varius. Proin mollis tellus id elit hendrerit, sagittis maximus sapien fringilla. Aenean sodales commodo tortor ut convallis. Quisque facilisis eros vitae rutrum hendrerit. Nulla quis nibh at purus dignissim fermentum vitae nec lorem. Cras viverra ullamcorper leo ac pellentesque. Ut eget rutrum odio, at consequat sapien. Vivamus in turpis non urna ultricies vehicula.
-</div>
-)
-
-
-
 class BasicExampleRouteWithNavlink extends Component {
   render() {
     return (
       <div>
-        <h1>First app about Route</h1>
+        <h3>First app about Route</h3>
         <ul>
-          <li><NavLink exact to="/" activeClassName="selected"
->Home </NavLink></li>
-          <li><NavLink to="/about" activeClassName="selected"
->About</NavLink></li>
-          <li><NavLink to="/articles" activeClassName="selected"
->Articles</NavLink></li>
-
-
-
+          <li><NavLink exact to="/" activeClassName="selected">Home </NavLink></li>
+          <li><NavLink to="/about" activeClassName="selected">About</NavLink></li>
+          <li><NavLink to="/articles" activeClassName="selected">Articles</NavLink></li>
+          <li><NavLink to="/Damien" activeClassName="selected">User</NavLink></li>
         </ul>
         <hr/>
 
+        <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
-        <Route path="/articles" component={Articles}/>
-        <Route exact path="/articles/42" component={Article42}/>
-        <Route exact path="/articles/1337" component={Article1337}/>
+        <Route exact path="/articles" component={Articles}/>
+        <Route path="/articles/42" component={Article42}/>
+        <Route path="/articles/1337" component={Article1337}/>
+        <Route exact path="/:user" component={User}/>
+        </Switch>
+
 
       </div>
     );
