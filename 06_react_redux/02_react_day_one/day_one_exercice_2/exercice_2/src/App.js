@@ -26,7 +26,7 @@ class Productstable extends Component {
   render() {
     return (
       <div>
-      <table class="table table-striped table-secondary text-center">
+      <table className="table table-striped table-secondary text-center">
         <thead>
           <tr>
             <th scope="col" onClick={this.sortBy.bind(this, "decathlon_id")}>Decathlon_id</th>
@@ -36,7 +36,7 @@ class Productstable extends Component {
         </thead>
         <tbody>
         {this.state.products.map(product =>
-          <tr>
+          <tr key={product.decathlon_id}>
             <td>{product.decathlon_id}</td>
             <td>{product.title}</td>
             <td>{product.price}</td>
