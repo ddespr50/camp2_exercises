@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/Damien/Workspace/camp2_exercises/07_react_native/01_setup/first_app_native/android/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/Damien/Workspace/camp2_exercises/07_react_native/01_setup/first_app_native/android/app/src/debug/jniLibs"/></dataSet></merger>
